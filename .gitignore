@@ -1,8 +1,22 @@
-.env
-data/raw/
-data/*.db
-data/graficos/
-__pycache__/
-*.pyc
+# Python virtual environments
 .venv/
 venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Pytest cache
+.pytest_cache/
+
+# Environment variables / secrets
+.env
+
+# Generated data
+data/
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
