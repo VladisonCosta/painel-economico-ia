@@ -1,5 +1,7 @@
 # Brazilian Economic Intelligence — Data Pipeline + AI Agent
 
+[![Tests](https://github.com/VladisonCosta/painel-economico-ia/actions/workflows/tests.yml/badge.svg)](https://github.com/VladisonCosta/painel-economico-ia/actions/workflows/tests.yml)
+
 End-to-end **Data Engineering, Data Analysis and Applied AI** project using real Brazilian economic indicators from the Central Bank of Brazil.
 
 The project extracts economic data from the public BCB API, stores it in a structured SQLite database, generates statistical analyses and charts, and exposes an AI-powered API capable of answering natural-language questions using retrieved economic data as context.
@@ -336,9 +338,10 @@ The complete flow was tested locally through the FastAPI Swagger interface.
 | Validation | Pydantic |
 | LLM Provider | Groq |
 | Current LLM | `openai/gpt-oss-120b` |
+| Testing | Pytest |
+| CI | GitHub Actions |
 | Environment Variables | python-dotenv |
 | Version Control | Git / GitHub |
-
 ---
 
 # Project Structure
@@ -346,11 +349,18 @@ The complete flow was tested locally through the FastAPI Swagger interface.
 ```text
 painel-economico-ia/
 │
+├── .github/
+│   └── workflows/
+│       └── tests.yml
+│
 ├── scripts/
 │   ├── extract.py
 │   ├── load.py
 │   ├── analysis.py
 │   └── agent.py
+│
+├── tests/
+│   └── test_load.py
 │
 ├── data/
 │   ├── raw/
@@ -374,11 +384,9 @@ Generated datasets, charts and database files are not committed to the repositor
 ## 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/VladisonCosta/painel-economico-ia.git
 cd painel-economico-ia
 ```
-
-The repository URL can be replaced after the project is published on GitHub.
 
 ---
 
@@ -400,6 +408,7 @@ On Windows:
 
 ```bash
 pip install -r requirements.txt
+pytest==9.1.1
 ```
 
 ---
@@ -643,8 +652,6 @@ groq==1.7.0
 
 Potential future improvements include:
 
-- automated tests with Pytest;
-- continuous integration with GitHub Actions;
 - additional economic indicators;
 - GDP and unemployment data;
 - PostgreSQL support;
